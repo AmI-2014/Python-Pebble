@@ -53,7 +53,7 @@ def update_metadata():
     title = "No Music Found"
     album = ""
     
-    # get current track metadata
+    # get current track metadata as string
     queue = rest.send(url = base_url + '/api/v1/player')
     if queue and queue['current']:
         artist = str(queue['current']['artist'])
@@ -71,7 +71,6 @@ def music_handler(endpoint, response):
         control_music(response, control_events[response])
 
 if __name__ == '__main__':
-    
     # create a new Pebble object
     pebble = libpebble.Pebble()
     
